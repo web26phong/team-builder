@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Members from "./components/members";
-import Form from "./components/forms";
+import Members from "./components/Members";
+import Form from "./components/Form";
 
 function App() {
   const [members, setMembers] = useState([]);
@@ -13,7 +13,8 @@ function App() {
       fname: member.fname,
       lname: member.lname,
       email: member.email,
-      title: member.title
+      role: member.role,
+      bio: member.bio
     }
     setMembers([...members, newMember]);
   }
@@ -22,7 +23,7 @@ function App() {
     <div className="App">
       <h1>Team Members</h1>
       <Form addMember={addMember} />
-      <Members />
+      <Members members={members}/>
     </div>
   );
 }
